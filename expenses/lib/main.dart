@@ -9,22 +9,22 @@ main() => runApp(ExpensesApp());
 class ExpensesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     Intl.defaultLocale = 'pt_BR';
     initializeDateFormatting('pt_BR', null);
-    return MaterialApp(home: MyHomePage());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: MyHomePage(),
+    );
   }
 }
 
 class MyHomePage extends StatelessWidget {
-
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.black87,
         title: Text('Despesas Pessoais'),
       ),
       body: Column(
@@ -38,8 +38,6 @@ class MyHomePage extends StatelessWidget {
             ),
           ),
           TransactionUser(),
-
-         
         ],
       ),
     );
