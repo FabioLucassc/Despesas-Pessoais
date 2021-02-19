@@ -24,6 +24,28 @@ class _TransactionUserState extends State<TransactionUser> {
       value: 211.30,
       date: DateTime.now(),
     ),
+
+    // //Duplicado para testes
+    // // vvvvvvvvvvvvvvvvvvvvv
+
+    // Transaction(
+    //   id: 't2',
+    //   title: 'Conta de Luz',
+    //   value: 211.30,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: 't2',
+    //   title: 'Conta de Luz',
+    //   value: 211.30,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: 't2',
+    //   title: 'Conta de Luz',
+    //   value: 211.30,
+    //   date: DateTime.now(),
+    // ),
   ];
 
   _addTransaction(String title, double value) {
@@ -45,7 +67,6 @@ class _TransactionUserState extends State<TransactionUser> {
       children: <Widget>[
         TransactionForm(_addTransaction),
         TransactionList(_transactions),
-        
       ],
     );
   }
