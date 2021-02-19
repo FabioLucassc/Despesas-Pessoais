@@ -7,10 +7,18 @@ class TransactionForm extends StatelessWidget {
   final Function(String, double) onSubmit;
 
   TransactionForm(this.onSubmit);
+
   _submitForm() {
     final title = titleController.text;
     final value = double.tryParse(valueController.text) ?? 0.0;
-    onSubmit(title, value);
+
+    if (title.isEmpty || value <= 0) {
+      return AlertDialog(
+        title: Text('Campos Vazios!'),
+      );
+    } else {
+      onSubmit(title, value);
+    }
   }
 
   @override
