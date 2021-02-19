@@ -1,5 +1,5 @@
-name: expenses
-description: A new Flutter project.
+name: despesas_pessoais
+description: App para ajudar no gerenciamento financeiro diario.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
