@@ -1,8 +1,13 @@
+import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_masked_text/flutter_masked_text.dart';
+
 
 class TransactionForm extends StatelessWidget {
   final titleController = TextEditingController();
-  final valueController = TextEditingController();
+  // final valueController = TextEditingController();
+  final valueController = MoneyMaskedTextController(decimalSeparator: '.', thousandSeparator: ',');
 
   final Function(String, double) onSubmit;
 
@@ -23,12 +28,13 @@ class TransactionForm extends StatelessWidget {
   Widget build(BuildContext context) {
     _submitForm() {
       final title = titleController.text;
+      // final String valueText = valueController.text;
+      // final valueini = valueController.text.re;
       final value = double.tryParse(valueController.text) ?? 0.0;
+      print(valueController.text);
 
       if (title.isEmpty || value <= 0) {
-        
         return showDialog(
-          
             context: context,
             builder: (BuildContext context) {
               return AlertDialog(
@@ -82,7 +88,12 @@ class TransactionForm extends StatelessWidget {
               decoration: InputDecoration(
                 labelText: 'Valor R\$',
               ),
+              inputFormatters: [
+                FilteringTextInputFormatter.digitsOnly,
+                // RealInputFormatter(centavos: true),
+              ],
             ),
+            
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
