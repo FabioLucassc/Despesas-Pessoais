@@ -19,11 +19,12 @@ class ExpensesApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: MyHomePage(),
       theme: ThemeData(
-        // primarySwatch: Colors.blueGrey,
-        primaryColor: Colors.blueGrey[900],
-        accentColor: Colors.blueGrey[900],
-        // backgroundColor: Colors.blueGrey[900],
-      ),
+          // primarySwatch: Colors.blueGrey,
+          primaryColor: Colors.blueGrey[900],
+          accentColor: Colors.blueGrey[900],
+          fontFamily: 'Quicksand'
+          // backgroundColor: Colors.blueGrey[900],
+          ),
     );
   }
 }
