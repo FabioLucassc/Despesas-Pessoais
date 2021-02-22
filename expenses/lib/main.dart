@@ -1,5 +1,4 @@
 import 'package:despesas_pessoais/components/transaction_form.dart';
-import './components/transaction_user.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'dart:math';
@@ -19,6 +18,10 @@ class ExpensesApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: MyHomePage(),
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+        accentColor: Colors.grey[850],
+      ),
     );
   }
 }
@@ -55,13 +58,14 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _transactions.add(newTransaction);
     });
+    Navigator.of(context).pop();
   }
 
   _openTransactionFormModal(BuildContext context) {
     showModalBottomSheet(
         context: context,
         builder: (_) {
-          return TransactionForm(null);
+          return TransactionForm(_addTransaction);
         });
   }
 
@@ -72,11 +76,14 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.black87,
+        // backgroundColor: Colors.black87,
         title: Text(
           'Despesas Pessoais',
         ),
-        actions: <Widget>[IconButton(icon: Icon(Icons.add), onPressed: () {})],
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.add),
+           onPressed: () => _openTransactionFormModal(context),
+           )],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -95,7 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () {},
+        onPressed: () => _openTransactionFormModal(context),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );

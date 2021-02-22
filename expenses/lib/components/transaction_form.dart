@@ -2,23 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 
-
-class TransactionForm extends StatelessWidget {
-  final titleController = TextEditingController();
-  // final valueController = TextEditingController();
-  final valueController =
-      MoneyMaskedTextController(decimalSeparator: '.', thousandSeparator: ',');
-
+class TransactionForm extends StatefulWidget {
   final Function(String, double) onSubmit;
-
- 
 
   TransactionForm(this.onSubmit);
 
   @override
+  _TransactionFormState createState() => _TransactionFormState();
+}
+
+class _TransactionFormState extends State<TransactionForm> {
+  final titleController = TextEditingController();
+
+  final valueController = MoneyMaskedTextController(decimalSeparator: '.', thousandSeparator: ',');
+
+  @override
   Widget build(BuildContext context) {
     _submitForm() {
-
       final title = titleController.text;
       final value =
           double.tryParse(valueController.text.replaceAll(',', '')) ?? 0.0;
@@ -39,9 +39,8 @@ class TransactionForm extends StatelessWidget {
                 ],
               );
             });
-   
       } else if (value <= 0) {
-        return  showDialog(
+        return showDialog(
             context: ((context)),
             builder: (_) {
               return AlertDialog(
@@ -56,7 +55,7 @@ class TransactionForm extends StatelessWidget {
               );
             });
       } else {
-        onSubmit(title, value);
+        widget.onSubmit(title, value);
       }
     }
 
