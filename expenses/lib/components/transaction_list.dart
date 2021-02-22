@@ -15,6 +15,7 @@ class TransactionList extends StatelessWidget {
         itemCount: transaction.length,
         itemBuilder: (ctx, index) {
           final tr = transaction[index];
+
           return Card(
               child: Row(
             children: <Widget>[
@@ -24,14 +25,23 @@ class TransactionList extends StatelessWidget {
                   vertical: 10,
                 ),
                 decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(40),
+                      bottomLeft: Radius.circular(40),
+                      bottomRight: Radius.circular(40),
+                      topLeft: Radius.circular(40),
+                    ),
                     border: Border.all(
-                  color: Colors.purple,
-                  width: 2,
-                )),
+                      color: Colors.purple,
+                      width: 2,
+                    )),
                 padding: EdgeInsets.all(10),
                 child: Text(
-                    NumberFormat.currency(symbol: 'R\$', decimalDigits: 2)
-                        .format(tr.value),
+                    NumberFormat.currency(
+                      symbol: 'R\$',
+                      decimalDigits: 2,
+                    ).format(tr.value),
+                    overflow: TextOverflow.ellipsis,
 
                     // NumberFormat.compactSimpleCurrency(
                     //         locale: 'pt-br', decimalDigits: 2, name: 'R\$')

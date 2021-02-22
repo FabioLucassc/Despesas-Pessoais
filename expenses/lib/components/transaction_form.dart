@@ -30,7 +30,7 @@ class TransactionForm extends StatelessWidget {
       final title = titleController.text;
       // final String valueText = valueController.text;
       // final valueini = valueController.text.re;
-      final value = double.tryParse(valueController.text) ?? 0.0;
+      final value = double.tryParse(valueController.text.replaceAll(',', '')) ?? 0.0;
       print(valueController.text);
 
       if (title.isEmpty || value <= 0) {

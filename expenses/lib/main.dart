@@ -25,10 +25,13 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.black87,
-        title: Text('Despesas Pessoais'),
+        title: Text(
+          'Despesas Pessoais',
+          textAlign: TextAlign.center,
+        ),
       ),
       body: SingleChildScrollView(
-              child: Column(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Container(
