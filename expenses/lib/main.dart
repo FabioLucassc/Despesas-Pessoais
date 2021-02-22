@@ -19,8 +19,10 @@ class ExpensesApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: MyHomePage(),
       theme: ThemeData(
-        primarySwatch: Colors.purple,
-        accentColor: Colors.grey[850],
+        // primarySwatch: Colors.blueGrey,
+        primaryColor: Colors.blueGrey[900],
+        accentColor: Colors.blueGrey[900],
+        // backgroundColor: Colors.blueGrey[900],
       ),
     );
   }
@@ -81,9 +83,11 @@ class _MyHomePageState extends State<MyHomePage> {
           'Despesas Pessoais',
         ),
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.add),
-           onPressed: () => _openTransactionFormModal(context),
-           )],
+          IconButton(
+            icon: Icon(Icons.add),
+            onPressed: () => _openTransactionFormModal(context),
+          )
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
