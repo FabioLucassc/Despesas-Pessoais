@@ -22,6 +22,8 @@ class ExpensesApp extends StatelessWidget {
         // primarySwatch: Colors.blueGrey,
         primaryColor: Colors.blueGrey[900],
         accentColor: Colors.blueGrey[900],
+        fontFamily: 'OpenSans'
+
         // backgroundColor: Colors.blueGrey[900],
       ),
     );
