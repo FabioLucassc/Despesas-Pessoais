@@ -43,11 +43,8 @@ class TransactionList extends StatelessWidget {
                         vertical: 10,
                       ),
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(40),
-                            bottomLeft: Radius.circular(40),
-                            bottomRight: Radius.circular(40),
-                            topLeft: Radius.circular(40),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(40),
                           ),
                           border: Border.all(
                             color: Colors.purple,
